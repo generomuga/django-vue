@@ -113,6 +113,8 @@ AZURE_AD = {
     "CLIENT_SECRET": os.getenv("CLIENT_SECRET"),
     "AUTHORITY": os.getenv("AUTHORITY"),
     "GRAPH_API_URL": os.getenv("GRAPH_API_URL"),
+    "SCOPES": [os.getenv("SCOPES")],
+    "REDIRECT_URI": os.getenv("REDIRECT_URI"),
 }
 
 # Internationalization
