@@ -8,7 +8,16 @@ import requests
 
 class AzureLoginView(View):
     """Redirects users to Microsoft's authentication URL."""
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect("home")
+        else:
+            return render(request, "login.html")
     
+class AzureSSOView(View):
+    """Redirects users to Microsoft's authentication URL."""
+
     def get(self, request):
         msal_app = ConfidentialClientApplication(
             settings.AZURE_AD["CLIENT_ID"],
@@ -20,7 +29,6 @@ class AzureLoginView(View):
             redirect_uri=settings.AZURE_AD["REDIRECT_URI"],
         )
         return redirect(auth_url)
-
 
 class AzureCallbackView(View):
     """Handles authentication response from Microsoft and logs the user in."""
