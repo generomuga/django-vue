@@ -64,11 +64,7 @@ class AzureCallbackView(View):
         response = requests.get("https://graph.microsoft.com/v1.0/me", headers=headers)
         return response.json()
 
-class LogoutView(View):
+class AzureLogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect("login")
-
-class HomeView(View):
-    def get(self, request):
-        return render(request, "home.html")
+        return redirect("azure_login")
