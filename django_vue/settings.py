@@ -58,7 +58,7 @@ ROOT_URLCONF = 'django_vue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "home", "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
