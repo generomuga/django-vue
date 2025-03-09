@@ -18,7 +18,7 @@ RUN python manage.py makemigrations
 # Run database migrations
 RUN python manage.py migrate
 
-RUN python manage.py sync_azure_users
+# RUN python manage.py sync_azure_users
 
 # Expose the port that Django runs on
 EXPOSE 8000
